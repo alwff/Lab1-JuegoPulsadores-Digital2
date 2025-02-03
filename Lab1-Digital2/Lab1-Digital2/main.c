@@ -1,5 +1,5 @@
 /* Universidad del Valle de Guatemala
-Electrónica Digital 2
+ElectrÃ³nica Digital 2
 Lab1.c
 Autor: Alejandra Cardona
 Hardware: ATMEGA328P
@@ -8,7 +8,7 @@ Ultima modificacion: 28/01/2025
 
 ****************************************************************** */
 
-// LIBRER?AS
+// LIBRERIAS
 
 #define F_CPU 16000000 //Frecuencia en la que opera el sistema - 16 MHz
 
@@ -74,7 +74,7 @@ void setup(void){ //Se utiliza void cuando no se emplean par?metros
 	
 	// Interrupcion del contador 4 bits
 	PCICR |= (1<<PCIE1); // PCIE0 para puerto C de 7:0
-	PCMSK1 |= ((1<<PCINT8)|(1<<PCINT9)|(1<<PCINT10)); // Habilita la interrupcion en el puerto C -- PCMSK0 corresponde al puerto C de pines 7:0
+	PCMSK1 |= ((1<<PCINT8)|(1<<PCINT9)|(1<<PCINT10)); // Habilita la interrupcion en el puerto C -- PCMSK1 corresponde al puerto C de pines 7:0
 	
 	sei(); // Habilita las interrupciones 
 	
@@ -86,7 +86,7 @@ void setup(void){ //Se utiliza void cuando no se emplean par?metros
 ISR(PCINT1_vect){
 	
 	if (!(PINC & (1 << PINC0))) {
-		 if (interrupcion_btn1) return; // Si ya está activa, ignorar
+		 if (interrupcion_btn1) return; // Si ya estÃ¡ activa, ignorar
 		 if (finalizador == 1) return;  // Al acabar el juego sale de la interrupcion
 
 		 interrupcion_btn1 = 1; // Bloquear otros botones
@@ -130,9 +130,9 @@ ISR(PCINT1_vect){
 	
 		 interrupcion_btn1 = 0; // Liberar botones al terminar
 	}
-	    else if (!interrupcion_btn1) { // Si no está activa la exclusión y otro botón es presionado
+	    else if (!interrupcion_btn1) { // Si no estÃ¡ activa la exclusiÃ³n y otro botÃ³n es presionado
 
-		    if (!(PINC & (1 << PINC1))) {  // Botón 2 en PC1
+		    if (!(PINC & (1 << PINC1))) {  // BotÃ³n 2 en PC1
 			    if (finalizador == 0){
 				// Aumenta contador del jugador 1
 			    contador4bits_p1++;
@@ -163,7 +163,7 @@ ISR(PCINT1_vect){
 		      }
 			}
 
-		    else if (!(PINC & (1 << PINC2))) { // Botón 3 en PC2
+		    else if (!(PINC & (1 << PINC2))) { // BotÃ³n 3 en PC2
 			    
 				if (finalizador == 0){
 				
